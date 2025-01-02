@@ -1,0 +1,23 @@
+<div class="yaml-container">
+    <div class="yaml-header">
+        skills.yaml
+    </div>
+    <div class="yaml-content">
+        <span class="yaml-key">kind:</span> <span class="yaml-value">{{ .Site.Data.skills.kind }}</span>
+        <br>
+        <span class="yaml-key">spec:</span>
+        <br>
+        <div class="yaml-indent">
+            {{ range $key, $values := .Site.Data.skills.spec }}
+                <span class="yaml-key">{{ $key }}:</span>
+                <br>
+                <div class="yaml-indent">
+                    {{ range $values }}
+                        - <span class="yaml-value">{{ . }}</span>
+                        <br>
+                    {{ end }}
+                </div>
+            {{ end }}
+        </div>
+    </div>
+</div>

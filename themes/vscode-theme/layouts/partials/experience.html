@@ -1,0 +1,30 @@
+<div class="right-column-content">
+    <!-- Profile Summary Section -->
+    <div class="section-container">
+        <div class="section-title">Profile Summary</div>
+        <div class="section-content">
+            {{ .Site.Data.profile.summary }}
+        </div>
+    </div>
+
+    <!-- Work Experience Section -->
+    <div class="section-container">
+        <div class="section-title">Work Experience</div>
+        {{ range .Site.Data.experience.positions }}  <!-- Corrected path to positions -->
+        <div class="experience-item">
+            <div class="title-line">{{ .title }}</div>
+            <div class="details-line">
+                <div class="company-info">{{ .company }} • {{ .location }}</div>
+                <div class="year">{{ .period }}</div>
+            </div>
+            {{ if .highlights }}
+            <ul class="experience-highlights">
+                {{ range .highlights }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+</div>

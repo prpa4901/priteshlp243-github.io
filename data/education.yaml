@@ -1,0 +1,10 @@
+degrees:
+  - type: "M.S Telecommunications"
+    school: "University of Colorado Boulder"
+    year: "2018-2020"
+
+certifications:
+  - name: "CCNA"
+    year: "2019"
+  - name: "AWS Cloud Practitioner"
+    year: "2024"  

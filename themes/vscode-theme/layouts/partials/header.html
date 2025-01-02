@@ -1,0 +1,14 @@
+<header>
+    <div class="top-bar">
+        <span class="title">{{ .Site.Title }}</span>
+    </div>
+    <div class="container">
+        <h1>{{ .Site.Params.name }}</h1>
+        <p>{{ .Site.Params.about }}</p>
+        <div class="contact">
+            <a href="mailto:{{ .Site.Params.email }}">{{ .Site.Params.email }}</a>
+            <a href="https://linkedin.com/in/{{ .Site.Params.linkedin }}" target="_blank">LinkedIn</a>
+            <a href="https://github.com/{{ .Site.Params.github }}" target="_blank">GitHub</a>
+        </div>
+    </div>
+</header>

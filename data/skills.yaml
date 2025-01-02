@@ -1,0 +1,18 @@
+kind: SkillSet
+spec:
+  programming-and-scripting:
+    - Python, Paramiko, Flask, Ansible, Jinja
+    - Javascript, HTML, CSS, VueJs
+  
+  devops-and-cloud:
+    - GitHub Actions, Jenkins, CI/CD Pipelines
+    - Terraform, Vault, Docker
+    - Kubernetes (GKE), AWS, GCP
+  
+  networking:
+    - Network Automation, OSPF, VLANs
+    - Switches, ACI, VxLAN, BGP, NAT, Layer3 VPN
+  
+  monitoring-and-apis:
+    - Grafana, Traceflow
+    - Swagger (REST API Development)

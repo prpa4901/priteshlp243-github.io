@@ -1,0 +1,46 @@
+# data/experience.yaml
+# data/experience.yaml
+positions:
+  - title: "Sr Infrastructure Engineer – Network Ops and Automation"
+    company: "General Mills, Inc."
+    location: "Minnesota, United States"
+    period: "Feb 2023 - Present"
+    highlights:
+      - "Led network automation initiatives reducing manual configuration time by 80% across 200+ Aruba switches using Python and Ansible"
+      - "Implemented CI/CD pipelines with GitHub Actions and developed pip-installable Python packages for network automation"
+      - "Deployed and managed GCP infrastructure using Terraform, including VPCs, load balancers, and Cloud NAT"
+      - "Developed automation frameworks for Dynamic Segmentation and built Grafana dashboards for operational visibility"
+
+  - title: "Software Engineer (Co-op)"
+    company: "Cisco Systems"
+    location: "San Jose, United States"
+    period: "Aug 2022 - Feb 2023"
+    highlights:
+      - "Developed NAT service APIs using Flask-Python for Umbrella Secure Connect product"
+      - "Performed NetOps and SRE responsibilities in 24/7 on-call rotation"
+      - "Led test automation initiatives and resolved networking issues for VM deployments"
+
+  - title: "Member of Technical Staff - NSX"
+    company: "VMware Inc."
+    location: "Palo Alto, United States"
+    period: "Sept 2020 - Aug 2022"
+    highlights:
+      - "Automated network testing achieving 100% coverage for owned features in VMware SDDC"
+      - "Led QA automation for NSX features including vLCM-NSXTaaS, uRPF, and Traceflow"
+      - "Managed Jenkins CI/CD pipelines for regression testing and deployment automation"
+
+  - title: "SD-WAN Product Development Intern"
+    company: "VMware Inc."
+    location: "Palo Alto, United States"
+    period: "May 2019 - Aug 2019"
+    highlights:
+      - "Developed Network Orchestrator automation tool reducing setup time from 3 hours to 20 minutes"
+      - "Built edge device performance dashboard on AWS Cloud reducing manual analysis by 80%"
+
+  - title: "System Engineer"
+    company: "Tata Consultancy Services Ltd."
+    location: "Mumbai, India"
+    period: "Nov 2016 - Mar 2018"
+    highlights:
+      - "Developed and maintained BANCS teller services in UNIX environment"
+      - "Led backend development and provided production support for customer issues"

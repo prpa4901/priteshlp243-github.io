@@ -1,0 +1,28 @@
+<!-- layouts/partials/projects.html -->
+<div class="terraform-container">
+    <div class="yaml-header">projects.tf</div>
+    <div class="terraform-content">
+        {{ range .Site.Data.projects }}
+        <div class="tf-block">
+            <div class="tf-line-main">
+                <span class="tf-resource">resource</span> <span class="tf-string">"project"</span> <span class="tf-string">"{{ .id }}"</span> <span class="tf-brackets">{</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">category</span> <span class="tf-operator">=</span> <span class="tf-string">"{{ .category }}"</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">project_list</span> <span class="tf-operator">=</span> <span class="tf-brackets">[</span>
+            </div>
+            {{ range .projects_list }}
+            <div class="tf-line">    <span class="tf-string">"{{ . }}"</span>,</div>
+            {{ end }}
+            <div class="tf-line">
+                <span class="tf-brackets">]</span>
+            </div>
+            <div class="tf-line-main">
+                <span class="tf-brackets">}</span>
+            </div>
+        </div>
+        {{ end }}
+    </div>
+</div>

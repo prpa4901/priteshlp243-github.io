@@ -1,0 +1,57 @@
+<div class="right-column-content">
+    <section>
+        <div class="section-title">Profile Summary</div>
+        <div class="section-content">
+            {{ .Site.Data.profile.summary }}
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">Work Experience</div>
+        <div class="section-content">
+        {{ range .Site.Data.experience.positions }}
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">{{ .title }}</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">{{ .company }}</span>
+                        <span class="separator">•</span>
+                        <span class="location">{{ .location }}</span>
+                    </div>
+                    <div class="experience-period">{{ .period }}</div>
+                </div>
+            </div>
+            {{ if .highlights }}
+            <ul class="experience-highlights">
+                {{ range .highlights }}
+                <li>{{ . }}</li>
+                {{ end }}
+            </ul>
+            {{ end }}
+        </div>
+        {{ end }}
+        <div class="section-title">Educations</div>
+        <div class="section-content">
+            {{ range .Site.Data.education.degrees }}
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">{{ .type }}</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">{{ .school }}</span>
+                        <span class="separator">•</span>
+                        <span class="location">Boulder, CO</span>
+                    </div>
+                    <div class="experience-period">{{ .year }}</div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+        </div>
+     </div>
+    </section>
+</div>

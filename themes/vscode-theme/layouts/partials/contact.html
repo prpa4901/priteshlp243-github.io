@@ -1,0 +1,10 @@
+<div class="code-container">
+    <div class="container-header">contact.yaml</div>
+    <div class="yaml-content">
+        {{ with .Site.Data.profile }}
+        <span class="yaml-key">email:</span> <span class="yaml-value">{{ .contact.email }}</span>
+        <span class="yaml-key">github:</span> <span class="yaml-value">{{ .contact.github }}</span>
+        <span class="yaml-key">linkedin:</span> <span class="yaml-value">{{ .contact.linkedin }}</span>
+        {{ end }}
+    </div>
+</div>

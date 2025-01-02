@@ -1,0 +1,36 @@
+# data/projects.yaml
+- id: "network_engineering"
+  category: "Network Engineering Lab"
+  projects_list:
+    - "Switching"
+    - "HSRP"
+    - "IPv6 SLAAC"
+    - "VRF"
+    - "Routing protocols"
+    - "IP Subnetting"
+    - "MPLS and GRE tunneling"
+
+- id: "network_automation"
+  category: "Network Automation"
+  projects_list:
+    - "AWS Cloud automation using Python Boto3"
+    - "DHCP address assignment using Netmiko"
+    - "IBGP config and backup using Flask and NAPALM"
+    - "Client Server communication via Python Socket"
+    - "DevOps automation lab using Ansible, Jinja2"
+    - "SNMP-Network Monitoring and NETCONF"
+
+- id: "linux_admin"
+  category: "Linux System Administration"
+  projects_list:
+    - "DHCP, DNS, HTTP server configuration"
+    - "Firewalls rules using ipTables"
+    - "Puppet manifest"
+
+- id: "sdn_networking"
+  category: "Software Defined Networking"
+  projects_list:
+    - "Mininet, OpenFlow with SDN controllers"
+    - "SDN Flow configuration via Rest APIs"
+    - "Test automation framework for SDN and NFV"
+    - "Stateful/stateless load balancer using RYU"
