@@ -1,0 +1,785 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="generator" content="Hugo 0.123.7">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RESUME</title>
+    <style>
+      :root {
+           
+          --main-bg: #3b3939;
+          --editor-bg: #1e1e1e;
+          --profile-bg: #5b7ac0;
+          --container-white: #ffffff;
+          --container-dark: #252526;
+          --text-light: #d4d4d4;
+          --text-dark: #333333;
+          --border-light: #e0e0e0;
+          --border-dark: #454545;
+  
+           
+          --yaml-key: #9cdcfe;
+          --yaml-value: #ce9178;
+          --yaml-comment: #6A9955;
+          
+           
+          --vscode-light-text: #24292e;
+          --vscode-light-heading: #24292e;
+          --vscode-light-subtext: #57606a;
+          --vscode-light-link: #0969da;
+          
+           
+          --tf-resource: #4EC9B0;          
+          --tf-string: #CE9178;           
+          --tf-variable: #9CDCFE;         
+          --tf-brackets: #FFD700;         
+          --tf-identifier: #4EC9B0;       
+          --tf-operator: #D4D4D4;         
+          --tf-dependency: #C586C0;       
+      }
+  
+       
+      body {
+          margin: 0;
+          padding: 0;
+          min-height: 100vh;
+          background: var(--main-bg);
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+          display: flex;
+          justify-content: center;
+      }
+  
+      .editor-container {
+        background: var(--editor-bg);
+        width: 70%;
+        max-width: 1000px;
+        padding: 2rem;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+  
+       
+      .resume-container {
+          display: flex;
+          gap: 2rem;
+          height: 100%;
+          flex: 1;
+      }
+  
+       
+      .column-left {
+        flex: 4;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+         
+        max-width: 40%;
+       }
+  
+      .column-right {
+        flex: 6;
+        background: var(--container-white);
+        margin: -2rem -2rem -2rem 0;  
+        padding: 0;
+        position: relative;
+        min-height: 100vh;  
+      }
+
+      .position {
+        font-weight: 600;
+        color: #0366d6;   
+        font-size: 1rem;
+    }
+
+    .company {
+        color: #24292e;
+        font-size: 0.95rem;
+    }
+
+    .separator {
+        color: #6a737d;
+    }
+
+    .location {
+        color: #6a737d;
+        font-size: 0.95rem;
+    }
+  
+       
+      
+  
+      .yaml-header, .terraform-header {
+        background: #2e2e30;
+        color: #D4D4D4;
+        padding: 8px 12px;
+        border-bottom: 1px solid #454545;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+  
+      .yaml-content {
+          padding: 1rem;
+          white-space: nowrap;   
+          overflow-x: auto; 
+      }
+  
+      .yaml-line {
+          display: block;
+          padding: 0.2rem 0;
+          line-height: 1.4;
+      }
+  
+       
+      .yaml-key {
+          color: var(--yaml-key);
+      }
+  
+      .yaml-value {
+          color: var(--yaml-value);
+      }
+  
+      .yaml-comment {
+          color: var(--yaml-comment);
+          font-style: italic;
+      }
+  
+      .yaml-indent {
+          padding-left: 1.5rem;
+      }
+
+      .profile-picture {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem auto;
+        border: 3px solid rgba(255, 255, 255, 0.8);
+        overflow: hidden;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .profile-picture img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .section-container {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;   
+    }
+
+    .section-title {
+        color: #24292e;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;   
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    .section-content {
+        color: #24292e;
+        line-height: 1.6;
+        font-size: 0.95rem;
+        margin-bottom: -1rem;   
+    }
+  
+       
+      .profile-container {
+        background: var(--profile-bg);
+        color: white;
+        padding: 2rem;
+        margin: -2rem -2rem 1.5rem -2rem;  
+        border: none;
+        border-radius: 0;   
+        box-shadow: none;   
+      }
+  
+      .profile-name {
+        font-size: 1.5rem;
+        margin-bottom: 2rem;
+        font-weight: 700;   
+        text-align: center;
+        letter-spacing: 0.5px;
+      }
+  
+      .profile-contact {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: auto auto;
+          gap: 1.2rem;
+          max-width: 600px;
+          margin: 0 auto;   
+      }
+  
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;   
+      }
+  
+       
+      .work-experience {
+          color: var(--vscode-light-text);
+      }
+
+      .work-title {
+        color: #0366d6;
+        font-weight: 600;
+      }
+
+      .experience-company {
+          color: #0969da;   
+      }
+
+      .school-name {
+        color: #0969da;
+      }
+
+      .experience-description {
+          color: #24292e;
+      }
+
+      .company-line {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .company-location {
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+    }
+  
+      .experience-item {
+        margin-bottom: 1.5rem;   
+    }
+
+      .experience-item:last-child {
+        margin-bottom: 0;
+    }
+  
+    .experience-period {
+        color: #6a737d;   
+        font-size: 0.7rem;
+        margin-bottom: 0.25rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .experience-company {
+        color: #0366d6;   
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .experience-highlights {
+        list-style-type: disc;
+        padding-left: 1.2rem;
+        margin-top: 0.75rem;
+    }
+
+    .experience-highlights li {
+        color: #2f363d;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+        line-height: 1.6;
+    }
+
+    .experience-header {
+        margin-bottom: 0.75rem;
+    }
+  
+       
+      .top-row {
+          display: flex;
+          gap: 2rem;
+          margin-bottom: 2rem;
+          min-height: 150px;
+      }
+  
+      .summary-container {
+          flex: 6;
+          padding: 0;
+          color: var(--vscode-light-text);
+      }
+  
+      .summary-title {
+          font-size: 1.2rem;
+          color: var(--vscode-light-heading);
+          margin-bottom: 1rem;
+      }
+
+      .title-line {
+        margin-bottom: 0.25rem;
+    }
+  
+       
+      .yaml-container, .terraform-container {
+        background: var(--editor-bg);
+        color: #D4D4D4;
+        font-family: 'Consolas', monospace;
+        font-size: 0.75rem;   
+        line-height: 1.4; 
+        margin-bottom: 1.5rem;
+        border-radius: 6px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        border: 1px solid #454545;
+    }
+      .tf-line {
+        display: block;
+        padding-left: 2rem;
+      }
+      .right-column-content {
+        display: flex;
+        flex-direction: column;
+        gap: 2.5rem;   
+        padding: 1.5rem;   
+    }
+
+
+      .tf-line-main {
+          display: block;
+      }
+      .terraform-content {
+        padding: 1rem;
+        background: var(--editor-bg);
+    }
+
+     
+    .tf-block {
+        padding-left: 0;
+    }
+
+    .primary-text {
+        color: #24292e;   
+    }
+
+    .secondary-text {
+        color: #6a737d;   
+    }
+
+    .link-text {
+        color: #0366d6;   
+    }
+
+    .emphasis-text {
+        color: #005cc5;   
+    }
+
+    
+      .tf-resource { color: #4EC9B0; }          
+      .tf-string { color: #CE9178; }            
+      .tf-variable { color: #9CDCFE; }          
+      .tf-brackets { color: #FFD700; }          
+      .tf-operator { color: #D4D4D4; }          
+      .tf-dependency { color: #C586C0; }        
+      .tf-comment { color: #6A9955; } 
+      .tf-indent-1 {
+        padding-left: 2rem;
+      }
+
+      .tf-indent-2 {
+        padding-left: 4rem;
+      }
+  </style>
+</head>
+<body>
+    <div class="editor-container">
+        <div class="resume-container">
+            <div class="column-left">
+                <div class="profile-container">
+    <div class="profile-picture">
+        <img src="images/profile_pritesh.jpg" alt="Profile Picture">
+    </div>
+    <div class="profile-name">PRITESH LAXMAN PATIL</div>
+    <div class="profile-contact">
+        <div class="contact-item"> 
+            <img class="contact-icon" src="/images/phone.svg" alt="Phone">
+            <span>&#43;17202176433</span>
+        </div>
+        <div class="contact-item">
+            <img class="contact-icon" src="/images/email.svg" alt="Email">
+            <span>priteshlp243@gmail.com</span>
+        </div>
+        <div class="contact-item">
+            <img class="contact-icon" src="/images/location.svg" alt="Location">
+            <span>Everett, MA</span>
+        </div>
+        <div class="contact-item">
+            <img class="contact-icon" src="/images/linkedin.svg" alt="LinkedIn">
+            <span>linkedin.com/in/priteshlp243</span>
+        </div>
+    </div>
+</div>
+                <div class="yaml-container">
+    <div class="yaml-header">
+        skills.yaml
+    </div>
+    <div class="yaml-content">
+        <span class="yaml-key">kind:</span> <span class="yaml-value">SkillSet</span>
+        <br>
+        <span class="yaml-key">spec:</span>
+        <br>
+        <div class="yaml-indent">
+            
+                <span class="yaml-key">devops-and-cloud:</span>
+                <br>
+                <div class="yaml-indent">
+                    
+                        - <span class="yaml-value">GitHub Actions, Jenkins, CI/CD Pipelines</span>
+                        <br>
+                    
+                        - <span class="yaml-value">Terraform, Vault, Docker</span>
+                        <br>
+                    
+                        - <span class="yaml-value">Kubernetes (GKE), AWS, GCP</span>
+                        <br>
+                    
+                </div>
+            
+                <span class="yaml-key">monitoring-and-apis:</span>
+                <br>
+                <div class="yaml-indent">
+                    
+                        - <span class="yaml-value">Grafana, Traceflow</span>
+                        <br>
+                    
+                        - <span class="yaml-value">Swagger (REST API Development)</span>
+                        <br>
+                    
+                </div>
+            
+                <span class="yaml-key">networking:</span>
+                <br>
+                <div class="yaml-indent">
+                    
+                        - <span class="yaml-value">Network Automation, OSPF, VLANs</span>
+                        <br>
+                    
+                        - <span class="yaml-value">Switches, ACI, VxLAN, BGP, NAT, Layer3 VPN</span>
+                        <br>
+                    
+                </div>
+            
+                <span class="yaml-key">programming-and-scripting:</span>
+                <br>
+                <div class="yaml-indent">
+                    
+                        - <span class="yaml-value">Python, Paramiko, Flask, Ansible, Jinja</span>
+                        <br>
+                    
+                        - <span class="yaml-value">Javascript, HTML, CSS, VueJs</span>
+                        <br>
+                    
+                </div>
+            
+        </div>
+    </div>
+</div>
+                
+<div class="terraform-container">
+    <div class="yaml-header">projects.tf</div>
+    <div class="terraform-content">
+        
+        <div class="tf-block">
+            <div class="tf-line-main">
+                <span class="tf-resource">resource</span> <span class="tf-string">"project"</span> <span class="tf-string">"network_engineering"</span> <span class="tf-brackets">{</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">category</span> <span class="tf-operator">=</span> <span class="tf-string">"Network Engineering Lab"</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">project_list</span> <span class="tf-operator">=</span> <span class="tf-brackets">[</span>
+            </div>
+            
+            <div class="tf-line">    <span class="tf-string">"Switching"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"HSRP"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"IPv6 SLAAC"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"VRF"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"Routing protocols"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"IP Subnetting"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"MPLS and GRE tunneling"</span>,</div>
+            
+            <div class="tf-line">
+                <span class="tf-brackets">]</span>
+            </div>
+            <div class="tf-line-main">
+                <span class="tf-brackets">}</span>
+            </div>
+        </div>
+        
+        <div class="tf-block">
+            <div class="tf-line-main">
+                <span class="tf-resource">resource</span> <span class="tf-string">"project"</span> <span class="tf-string">"network_automation"</span> <span class="tf-brackets">{</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">category</span> <span class="tf-operator">=</span> <span class="tf-string">"Network Automation"</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">project_list</span> <span class="tf-operator">=</span> <span class="tf-brackets">[</span>
+            </div>
+            
+            <div class="tf-line">    <span class="tf-string">"AWS Cloud automation using Python Boto3"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"DHCP address assignment using Netmiko"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"IBGP config and backup using Flask and NAPALM"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"Client Server communication via Python Socket"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"DevOps automation lab using Ansible, Jinja2"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"SNMP-Network Monitoring and NETCONF"</span>,</div>
+            
+            <div class="tf-line">
+                <span class="tf-brackets">]</span>
+            </div>
+            <div class="tf-line-main">
+                <span class="tf-brackets">}</span>
+            </div>
+        </div>
+        
+        <div class="tf-block">
+            <div class="tf-line-main">
+                <span class="tf-resource">resource</span> <span class="tf-string">"project"</span> <span class="tf-string">"linux_admin"</span> <span class="tf-brackets">{</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">category</span> <span class="tf-operator">=</span> <span class="tf-string">"Linux System Administration"</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">project_list</span> <span class="tf-operator">=</span> <span class="tf-brackets">[</span>
+            </div>
+            
+            <div class="tf-line">    <span class="tf-string">"DHCP, DNS, HTTP server configuration"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"Firewalls rules using ipTables"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"Puppet manifest"</span>,</div>
+            
+            <div class="tf-line">
+                <span class="tf-brackets">]</span>
+            </div>
+            <div class="tf-line-main">
+                <span class="tf-brackets">}</span>
+            </div>
+        </div>
+        
+        <div class="tf-block">
+            <div class="tf-line-main">
+                <span class="tf-resource">resource</span> <span class="tf-string">"project"</span> <span class="tf-string">"sdn_networking"</span> <span class="tf-brackets">{</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">category</span> <span class="tf-operator">=</span> <span class="tf-string">"Software Defined Networking"</span>
+            </div>
+            <div class="tf-line">
+                <span class="tf-variable">project_list</span> <span class="tf-operator">=</span> <span class="tf-brackets">[</span>
+            </div>
+            
+            <div class="tf-line">    <span class="tf-string">"Mininet, OpenFlow with SDN controllers"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"SDN Flow configuration via Rest APIs"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"Test automation framework for SDN and NFV"</span>,</div>
+            
+            <div class="tf-line">    <span class="tf-string">"Stateful/stateless load balancer using RYU"</span>,</div>
+            
+            <div class="tf-line">
+                <span class="tf-brackets">]</span>
+            </div>
+            <div class="tf-line-main">
+                <span class="tf-brackets">}</span>
+            </div>
+        </div>
+        
+    </div>
+</div>
+            </div>
+            <div class="column-right">
+                <div class="right-column-content">
+    <section>
+        <div class="section-title">Profile Summary</div>
+        <div class="section-content">
+            Network Automation Engineer at General Mills focused on Infrastructure-as-Code. I specialize in automating network services using Python, Ansible, and modern cloud technologies. With experience at Cisco and VMware, I&#39;ve worked extensively on SDN and NetOps projects. CCNA certified with a Master&#39;s in Telecommunications from UC Boulder. Passionate about optimizing network infrastructure and collaborating on innovative solutions for complex network challenges.
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">Work Experience</div>
+        <div class="section-content">
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">Sr Infrastructure Engineer – Network Ops and Automation</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">General Mills, Inc.</span>
+                        <span class="separator">•</span>
+                        <span class="location">Minnesota, United States</span>
+                    </div>
+                    <div class="experience-period">Feb 2023 - Present</div>
+                </div>
+            </div>
+            
+            <ul class="experience-highlights">
+                
+                <li>Led network automation initiatives reducing manual configuration time by 80% across 200&#43; Aruba switches using Python and Ansible</li>
+                
+                <li>Implemented CI/CD pipelines with GitHub Actions and developed pip-installable Python packages for network automation</li>
+                
+                <li>Deployed and managed GCP infrastructure using Terraform, including VPCs, load balancers, and Cloud NAT</li>
+                
+                <li>Developed automation frameworks for Dynamic Segmentation and built Grafana dashboards for operational visibility</li>
+                
+            </ul>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">Software Engineer (Co-op)</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">Cisco Systems</span>
+                        <span class="separator">•</span>
+                        <span class="location">San Jose, United States</span>
+                    </div>
+                    <div class="experience-period">Aug 2022 - Feb 2023</div>
+                </div>
+            </div>
+            
+            <ul class="experience-highlights">
+                
+                <li>Developed NAT service APIs using Flask-Python for Umbrella Secure Connect product</li>
+                
+                <li>Performed NetOps and SRE responsibilities in 24/7 on-call rotation</li>
+                
+                <li>Led test automation initiatives and resolved networking issues for VM deployments</li>
+                
+            </ul>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">Member of Technical Staff - NSX</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">VMware Inc.</span>
+                        <span class="separator">•</span>
+                        <span class="location">Palo Alto, United States</span>
+                    </div>
+                    <div class="experience-period">Sept 2020 - Aug 2022</div>
+                </div>
+            </div>
+            
+            <ul class="experience-highlights">
+                
+                <li>Automated network testing achieving 100% coverage for owned features in VMware SDDC</li>
+                
+                <li>Led QA automation for NSX features including vLCM-NSXTaaS, uRPF, and Traceflow</li>
+                
+                <li>Managed Jenkins CI/CD pipelines for regression testing and deployment automation</li>
+                
+            </ul>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">SD-WAN Product Development Intern</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">VMware Inc.</span>
+                        <span class="separator">•</span>
+                        <span class="location">Palo Alto, United States</span>
+                    </div>
+                    <div class="experience-period">May 2019 - Aug 2019</div>
+                </div>
+            </div>
+            
+            <ul class="experience-highlights">
+                
+                <li>Developed Network Orchestrator automation tool reducing setup time from 3 hours to 20 minutes</li>
+                
+                <li>Built edge device performance dashboard on AWS Cloud reducing manual analysis by 80%</li>
+                
+            </ul>
+            
+        </div>
+        
+        <div class="experience-item">
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">System Engineer</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">Tata Consultancy Services Ltd.</span>
+                        <span class="separator">•</span>
+                        <span class="location">Mumbai, India</span>
+                    </div>
+                    <div class="experience-period">Nov 2016 - Mar 2018</div>
+                </div>
+            </div>
+            
+            <ul class="experience-highlights">
+                
+                <li>Developed and maintained BANCS teller services in UNIX environment</li>
+                
+                <li>Led backend development and provided production support for customer issues</li>
+                
+            </ul>
+            
+        </div>
+        
+        <div class="section-title">Educations</div>
+        <div class="section-content">
+            
+            <div class="experience-header">
+                <div class="title-line">
+                    <span class="position">M.S Telecommunications</span>
+                </div>
+                <div class="company-line">
+                    <div class="company-location">
+                        <span class="company">University of Colorado Boulder</span>
+                        <span class="separator">•</span>
+                        <span class="location">Boulder, CO</span>
+                    </div>
+                    <div class="experience-period">2018-2020</div>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+     </div>
+    </section>
+</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
