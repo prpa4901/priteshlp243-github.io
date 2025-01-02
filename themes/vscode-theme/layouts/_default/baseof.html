@@ -5,18 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ .Site.Title }}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
       :root {
           /* Base VS Code Colors */
           --main-bg: #3b3939;
           --editor-bg: #1e1e1e;
-          --profile-bg: #5b7ac0;
+          --profile-bg: #5472b8;
           --container-white: #ffffff;
           --container-dark: #252526;
           --text-light: #d4d4d4;
           --text-dark: #333333;
           --border-light: #e0e0e0;
           --border-dark: #454545;
+          --vscode-dark-blue: #011220; 
   
           /* YAML Syntax Colors */
           --yaml-key: #9cdcfe;
@@ -41,24 +43,40 @@
   
       /* Base Layout */
       body {
-          margin: 0;
-          padding: 0;
-          min-height: 100vh;
-          background: var(--main-bg);
-          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-          display: flex;
-          justify-content: center;
-      }
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background: var(--main-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            display: flex;
+            justify-content: center;
+        }
   
       .editor-container {
-        background: var(--editor-bg);
-        width: 70%;
-        max-width: 1000px;
-        padding: 2rem;
-        min-height: 100vh;
+          background: var(--editor-bg);
+          width: 70%;
+          max-width: 1000px;
+          padding: 2rem;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+      }
+
+      .contact-item {
         display: flex;
-        flex-direction: column;
-    }
+        align-items: center;
+        gap: 0.8rem;
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.9rem;
+      }
+
+      .contact-item i {
+          color: var(--vscode-dark-blue);
+          opacity: 0.9;
+          width: 16px;
+          text-align: center;
+          font-size: 1rem;
+      }
   
       /* Resume Layout */
       .resume-container {
@@ -91,24 +109,24 @@
         font-weight: 600;
         color: #0366d6;  /* VS Code link blue */
         font-size: 1rem;
-    }
+      }
 
-    .company {
-        color: #24292e;
-        font-size: 0.95rem;
-    }
+      .company {
+          color: #24292e;
+          font-size: 0.95rem;
+      }
 
-    .separator {
-        color: #6a737d;
-    }
+      .separator {
+          color: #6a737d;
+      }
 
-    .location {
-        color: #6a737d;
-        font-size: 0.95rem;
-    }
-  
-      /* YAML Container Styles */
-      
+      .location {
+          color: #6a737d;
+          font-size: 0.95rem;
+      }
+    
+        /* YAML Container Styles */
+        
   
       .yaml-header, .terraform-header {
         background: #2e2e30;
@@ -118,75 +136,75 @@
         display: flex;
         align-items: center;
         gap: 8px;
-    }
-  
-      .yaml-content {
-          padding: 1rem;
-          white-space: nowrap;  /* Prevent line wrapping */
-          overflow-x: auto; 
       }
-  
-      .yaml-line {
-          display: block;
-          padding: 0.2rem 0;
-          line-height: 1.4;
-      }
-  
-      /* YAML Syntax Highlighting */
-      .yaml-key {
-          color: var(--yaml-key);
-      }
-  
-      .yaml-value {
-          color: var(--yaml-value);
-      }
-  
-      .yaml-comment {
-          color: var(--yaml-comment);
-          font-style: italic;
-      }
-  
-      .yaml-indent {
-          padding-left: 1.5rem;
+    
+        .yaml-content {
+            padding: 1rem;
+            white-space: nowrap;  /* Prevent line wrapping */
+            overflow-x: auto; 
+        }
+    
+        .yaml-line {
+            display: block;
+            padding: 0.2rem 0;
+            line-height: 1.4;
+        }
+    
+        /* YAML Syntax Highlighting */
+        .yaml-key {
+            color: var(--yaml-key);
+        }
+    
+        .yaml-value {
+            color: var(--yaml-value);
+        }
+    
+        .yaml-comment {
+            color: var(--yaml-comment);
+            font-style: italic;
+        }
+    
+        .yaml-indent {
+            padding-left: 1.5rem;
+        }
+
+        .profile-picture {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          margin: 0 auto 1.5rem auto;
+          border: 3px solid rgba(255, 255, 255, 0.8);
+          overflow: hidden;
+          box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
       }
 
-      .profile-picture {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        margin: 0 auto 1.5rem auto;
-        border: 3px solid rgba(255, 255, 255, 0.8);
-        overflow: hidden;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    }
+      .profile-picture img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+      }
 
-    .profile-picture img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
+      .section-container {
+          display: flex;
+          flex-direction: column;
+          gap: 1.5rem;  /* Space between title and content */
+      }
 
-    .section-container {
-        display: flex;
-        flex-direction: column;
-        gap: 1.5rem;  /* Space between title and content */
-    }
+      .section-title {
+          color: #24292e;
+          font-size: 1.4rem;
+          font-weight: 600;
+          margin-bottom: 1rem;  /* Reduced from 1.5rem */
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      }
 
-    .section-title {
-        color: #24292e;
-        font-size: 1.4rem;
-        font-weight: 600;
-        margin-bottom: 1rem;  /* Reduced from 1.5rem */
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    }
-
-    .section-content {
-        color: #24292e;
-        line-height: 1.6;
-        font-size: 0.95rem;
-        margin-bottom: -1rem;  /* Reduced from 2.5rem */
-    }
-  
+      .section-content {
+          color: #24292e;
+          line-height: 1.6;
+          font-size: 0.95rem;
+          margin-bottom: -1rem;  /* Reduced from 2.5rem */
+      }
+    
       /* Profile Section */
       .profile-container {
         background: var(--profile-bg);
@@ -249,13 +267,13 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+      }
 
-    .company-location {
-        display: flex;
-        gap: 0.5rem;
-        align-items: center;
-    }
+      .company-location {
+          display: flex;
+          gap: 0.5rem;
+          align-items: center;
+      }
   
       .experience-item {
         margin-bottom: 1.5rem;  /* Space between jobs */
@@ -263,40 +281,40 @@
 
       .experience-item:last-child {
         margin-bottom: 0;
-    }
-  
-    .experience-period {
-        color: #6a737d;  /* VS Code light gray text */
-        font-size: 0.7rem;
-        margin-bottom: 0.25rem;
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-    }
+      }
+    
+      .experience-period {
+          color: #6a737d;  /* VS Code light gray text */
+          font-size: 0.7rem;
+          margin-bottom: 0.25rem;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+      }
 
-    .experience-company {
-        color: #0366d6;  /* VS Code link blue */
-        font-weight: 600;
-        font-size: 1.1rem;
-        margin-bottom: 0.75rem;
-    }
+      .experience-company {
+          color: #0366d6;  /* VS Code link blue */
+          font-weight: 600;
+          font-size: 1.1rem;
+          margin-bottom: 0.75rem;
+      }
 
-    .experience-highlights {
-        list-style-type: disc;
-        padding-left: 1.2rem;
-        margin-top: 0.75rem;
-    }
+      .experience-highlights {
+          list-style-type: disc;
+          padding-left: 1.2rem;
+          margin-top: 0.75rem;
+      }
 
-    .experience-highlights li {
-        color: #2f363d;
-        margin-bottom: 0.5rem;
-        font-size: 0.9rem;
-        line-height: 1.6;
-    }
+      .experience-highlights li {
+          color: #2f363d;
+          margin-bottom: 0.5rem;
+          font-size: 0.9rem;
+          line-height: 1.6;
+      }
 
-    .experience-header {
-        margin-bottom: 0.75rem;
-    }
-  
+      .experience-header {
+          margin-bottom: 0.75rem;
+      }
+    
       /* Top Row Alignment */
       .top-row {
           display: flex;
@@ -319,7 +337,7 @@
 
       .title-line {
         margin-bottom: 0.25rem;
-    }
+      }
   
       /* Terraform Styles */
       .yaml-container, .terraform-container {
@@ -333,7 +351,7 @@
         overflow: hidden;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         border: 1px solid #454545;
-    }
+      }
       .tf-line {
         display: block;
         padding-left: 2rem;
@@ -343,7 +361,7 @@
         flex-direction: column;
         gap: 2.5rem;  /* Reduced from 3.5rem */
         padding: 1.5rem;  /* Reduced from 2rem */
-    }
+      }
 
 
       .tf-line-main {
@@ -352,28 +370,28 @@
       .terraform-content {
         padding: 1rem;
         background: var(--editor-bg);
-    }
+      }
 
-    /* Indentation and spacing */
-    .tf-block {
-        padding-left: 0;
-    }
+      /* Indentation and spacing */
+      .tf-block {
+          padding-left: 0;
+      }
 
-    .primary-text {
-        color: #24292e;  /* Main text */
-    }
+      .primary-text {
+          color: #24292e;  /* Main text */
+      }
 
-    .secondary-text {
-        color: #6a737d;  /* Secondary text */
-    }
+      .secondary-text {
+          color: #6a737d;  /* Secondary text */
+      }
 
-    .link-text {
-        color: #0366d6;  /* Links */
-    }
+      .link-text {
+          color: #0366d6;  /* Links */
+      }
 
-    .emphasis-text {
-        color: #005cc5;  /* Emphasized text */
-    }
+      .emphasis-text {
+          color: #005cc5;  /* Emphasized text */
+      }
 
     
       .tf-resource { color: #4EC9B0; }         /* resource keyword */
@@ -390,6 +408,101 @@
       .tf-indent-2 {
         padding-left: 4rem;
       }
+      @media screen and (max-width: 1024px) {
+            .editor-container {
+                width: 85%;
+                padding: 1.5rem;
+            }
+        }
+
+      @media screen and (max-width: 768px) {
+          .editor-container {
+              width: 100%;
+              padding: 1rem;
+          }
+
+          .resume-container {
+              flex-direction: column;
+              gap: 1rem;
+          }
+
+          .column-left, .column-right {
+              max-width: 100%;
+              width: 100%;
+              flex: none;
+          }
+
+          .column-right {
+              margin: 0;
+              padding: 1rem;
+          }
+
+          .profile-container {
+              margin: -1rem -1rem 1rem -1rem;
+              padding: 1rem;
+          }
+
+          .profile-contact {
+              grid-template-columns: 1fr;
+              gap: 0.8rem;
+          }
+
+          .yaml-container, .terraform-container {
+              font-size: 0.7rem;
+              margin-bottom: 1rem;
+          }
+
+          .section-title {
+              font-size: 1.2rem;
+          }
+
+          .profile-name {
+              font-size: 1.3rem;
+              margin-bottom: 1.5rem;
+          }
+
+          .experience-item {
+              margin-bottom: 1.2rem;
+          }
+
+          .contact-item {
+              font-size: 0.85rem;
+          }
+
+          /* Adjust the profile picture size for mobile */
+          .profile-picture {
+              width: 100px;
+              height: 100px;
+              margin-bottom: 1rem;
+          }
+
+          /* Make yaml content scrollable on mobile */
+          .yaml-content {
+              overflow-x: auto;
+              -webkit-overflow-scrolling: touch;
+          }
+      }
+
+      /* Add dark mode support */
+      
+
+      /* Print styles for better PDF generation */
+      @media print {
+          body {
+              background: white;
+          }
+
+          .editor-container {
+              width: 100%;
+              padding: 0;
+              box-shadow: none;
+          }
+
+          .yaml-container,
+          .terraform-container {
+              border: 1px solid #ddd;
+          }
+        }
   </style>
 </head>
 <body>
